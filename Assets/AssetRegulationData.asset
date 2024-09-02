@@ -15,55 +15,57 @@ MonoBehaviour:
   _set:
     _values:
       _keys:
-      - 45ac83f3-b84f-4021-b956-6a61ee0f4ee4
+      - a1fbad2b-9a12-49bb-a2d2-ccedd8dc6878
       _values:
-      - _id: 45ac83f3-b84f-4021-b956-6a61ee0f4ee4
+      - _id: a1fbad2b-9a12-49bb-a2d2-ccedd8dc6878
         _name:
           _value: New Asset Regulation
         _assetGroups:
           _keys:
-          - e577640f-67b2-4d32-897f-38bac184c3bf
+          - 9876ca14-b569-4614-a639-524febadbaf6
           _values:
-          - _id: e577640f-67b2-4d32-897f-38bac184c3bf
+          - _id: 9876ca14-b569-4614-a639-524febadbaf6
             _name:
               _value: New Asset Group
             _filters:
               _keys:
-              - c61916a1-1193-4c79-be06-a3f0d1c9cc8b
+              - 4c9f05e9-381c-4055-91f5-e35a62540fd4
               _values:
-              - rid: 2016667105433485318
+              - rid: 2016667105433485331
             _filterOrders:
               _ids:
-              - c61916a1-1193-4c79-be06-a3f0d1c9cc8b
+              - 4c9f05e9-381c-4055-91f5-e35a62540fd4
         _constraints:
           _keys:
-          - 76ca369f-1e45-464f-9935-aad041aa7a06
+          - 2f2ba1df-3c9d-4726-aa6e-f80c7c086c8c
           _values:
-          - rid: 2016667105433485319
+          - rid: 2016667105433485332
         _assetGroupOrders:
           _ids:
-          - e577640f-67b2-4d32-897f-38bac184c3bf
+          - 9876ca14-b569-4614-a639-524febadbaf6
         _constraintOrders:
           _ids:
-          - 76ca369f-1e45-464f-9935-aad041aa7a06
+          - 2f2ba1df-3c9d-4726-aa6e-f80c7c086c8c
     _orders:
       _ids:
-      - 45ac83f3-b84f-4021-b956-6a61ee0f4ee4
+      - a1fbad2b-9a12-49bb-a2d2-ccedd8dc6878
   references:
     version: 2
     RefIds:
-    - rid: 2016667105433485318
-      type: {class: ExtensionBasedAssetFilter, ns: AssetRegulationManager.Editor.Core.Model.AssetRegulations.AssetFilterImpl, asm: AssetRegulationManager.Editor}
+    - rid: 2016667105433485331
+      type: {class: RegexBasedAssetFilter, ns: AssetRegulationManager.Editor.Core.Model.AssetRegulations.AssetFilterImpl, asm: AssetRegulationManager.Editor}
       data:
-        _id: c61916a1-1193-4c79-be06-a3f0d1c9cc8b
-        _extension:
+        _id: 4c9f05e9-381c-4055-91f5-e35a62540fd4
+        _matchWithFolders: 1
+        _condition: 0
+        _assetPathRegex:
           _isListMode: 1
           _values:
-          - png
-          - jpg
-    - rid: 2016667105433485319
-      type: {class: FileSizeConstraint, ns: AssetRegulationManager.Editor.Core.Model.AssetRegulations.AssetConstraintImpl, asm: AssetRegulationManager.Editor}
+          - Assets/Texture
+    - rid: 2016667105433485332
+      type: {class: MaxTextureSizeConstraint, ns: AssetRegulationManager.Editor.Core.Model.AssetRegulations.AssetConstraintImpl, asm: AssetRegulationManager.Editor}
       data:
-        _id: 76ca369f-1e45-464f-9935-aad041aa7a06
-        _maxSize: 50
-        _unit: 1
+        _id: 2f2ba1df-3c9d-4726-aa6e-f80c7c086c8c
+        _countMode: 0
+        _maxSize: {x: 500, y: 500}
+        _maxTexelCount: 0
