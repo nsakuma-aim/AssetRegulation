@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558bc1c72153841048b5bbf834212fba, type: 3}
+  m_Name: AssetRegulationData
+  m_EditorClassIdentifier: 
+  _set:
+    _values:
+      _keys:
+      - 45ac83f3-b84f-4021-b956-6a61ee0f4ee4
+      _values:
+      - _id: 45ac83f3-b84f-4021-b956-6a61ee0f4ee4
+        _name:
+          _value: New Asset Regulation
+        _assetGroups:
+          _keys:
+          - e577640f-67b2-4d32-897f-38bac184c3bf
+          _values:
+          - _id: e577640f-67b2-4d32-897f-38bac184c3bf
+            _name:
+              _value: New Asset Group
+            _filters:
+              _keys:
+              - c61916a1-1193-4c79-be06-a3f0d1c9cc8b
+              _values:
+              - rid: 2016667105433485318
+            _filterOrders:
+              _ids:
+              - c61916a1-1193-4c79-be06-a3f0d1c9cc8b
+        _constraints:
+          _keys:
+          - 76ca369f-1e45-464f-9935-aad041aa7a06
+          _values:
+          - rid: 2016667105433485319
+        _assetGroupOrders:
+          _ids:
+          - e577640f-67b2-4d32-897f-38bac184c3bf
+        _constraintOrders:
+          _ids:
+          - 76ca369f-1e45-464f-9935-aad041aa7a06
+    _orders:
+      _ids:
+      - 45ac83f3-b84f-4021-b956-6a61ee0f4ee4
+  references:
+    version: 2
+    RefIds:
+    - rid: 2016667105433485318
+      type: {class: ExtensionBasedAssetFilter, ns: AssetRegulationManager.Editor.Core.Model.AssetRegulations.AssetFilterImpl, asm: AssetRegulationManager.Editor}
+      data:
+        _id: c61916a1-1193-4c79-be06-a3f0d1c9cc8b
+        _extension:
+          _isListMode: 1
+          _values:
+          - png
+          - jpg
+    - rid: 2016667105433485319
+      type: {class: FileSizeConstraint, ns: AssetRegulationManager.Editor.Core.Model.AssetRegulations.AssetConstraintImpl, asm: AssetRegulationManager.Editor}
+      data:
+        _id: 76ca369f-1e45-464f-9935-aad041aa7a06
+        _maxSize: 50
+        _unit: 1
