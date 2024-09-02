@@ -47,15 +47,13 @@ public static class AddRegulation
 
         // Create targets.
         var assetGroup = regulation.AddAssetGroup();
-        var extensionFilter = assetGroup.AddFilter<ExtensionBasedAssetFilter>();
-        extensionFilter.Extension.IsListMode = true;
-        extensionFilter.Extension.AddValue("png");
-        extensionFilter.Extension.AddValue("jpg");
+        var regexBasedAssetFilter = assetGroup.AddFilter<RegexBasedAssetFilter>();
+        regexBasedAssetFilter.AssetPathRegex.IsListMode = true;
+        regexBasedAssetFilter.AssetPathRegex.AddValue("Assets/Texture");
+        regexBasedAssetFilter.MatchWithFolders = true;
 
-        // Create constraints.
-        var fileSizeConstraint = regulation.AddConstraint<FileSizeConstraint>();
-        fileSizeConstraint.Unit = FileSizeConstraint.SizeUnit.KB;
-        fileSizeConstraint.MaxSize = 50;
+        var maxTextureSizeConstraint = regulation.AddConstraint<MaxTextureSizeConstraint>();
+        maxTextureSizeConstraint.MaxSize = new Vector2(500, 500);
 
         EditorUtility.SetDirty(assetRegulationSetStore);
         AssetDatabase.SaveAssets();
