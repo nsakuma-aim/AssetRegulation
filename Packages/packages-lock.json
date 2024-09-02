@@ -135,6 +135,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "jp.co.cyberagent.assetregulationmanager": {
+      "version": "https://github.com/CyberAgentGameEntertainment/AssetRegulationManager.git?path=/Assets/AssetRegulationManager",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8dd9d2b75aea4a77dcaaa34199d6ff7c53ee69a7"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
