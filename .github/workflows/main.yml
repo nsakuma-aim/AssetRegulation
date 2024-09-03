@@ -33,3 +33,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo ${{ github.event.pull_request.number }}.
+          run: gh pr comment "${{ github.event.pull_request.number }}" --body "Thank you for your pull request! We will review it as soon as possible."
