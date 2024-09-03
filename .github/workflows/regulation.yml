@@ -10,5 +10,4 @@ jobs:
   build:
     runs-on: [ self-hosted, Windows ]
     steps:
-      - uses: actions/checkout@v4
         run: echo Hello
