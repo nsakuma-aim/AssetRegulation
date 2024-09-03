@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Build
         run: |
-          & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod "BuildApp.Build"
+          & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod "AssetRegulationManager.Editor.Core.Tool.Test.AssetRegulationTestCLI.AssetRegulationTestCLI.ExecuteTests"
 
       - name: Upload App
         uses: actions/upload-artifact@v3
