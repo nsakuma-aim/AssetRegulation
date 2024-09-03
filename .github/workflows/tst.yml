@@ -12,13 +12,13 @@ jobs:
     runs-on: [ self-hosted, Windows ]
     strategy:
       fail-fast: false
-      steps:
-        - uses: actions/checkout@v4
-          with:
-            lfs: true
-            clean: false
-            submodules: recursive
-    
-        - name: Run Build
-          run: |
-            & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -batchmode -quit -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod BuildApp.Build
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          clean: false
+          submodules: recursive
+  
+      - name: Run Build
+        run: |
+          & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -batchmode -quit -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod BuildApp.Build
