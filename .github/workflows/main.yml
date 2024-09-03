@@ -2,7 +2,7 @@ name: comment_on_pr
 
 on:
   pull_request:
-    types:[ opened, synchronize ]
+    types: synchronize
 
 jobs:
   comment:
@@ -10,15 +10,17 @@ jobs:
     steps:
       - name: Create comments
         run: |
-          cat << EOF > comments
-          1st
-          2nd
-          3rd
-          EOF
+          echo "1st" >> comments
+          echo "2nd" >> comments
+          echo "3rd" >> comments
+          sed -i -z 's/\n/\\n/g' comments
 
-      - name: Post comments
+      - name: Post multi-line comments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          URL: ${{ github.event.pull_request.html_url }}
-        run:
-          gh pr comment -F ./comments "${URL}"
+          URL: ${{ github.event.pull_request.comments_url }}
+        run: |
+          curl -X POST \
+               -H "Authorization: token ${GITHUB_TOKEN}" \
+               -d "{\"body\": \"$(cat comments)\"}" \
+               ${URL}
