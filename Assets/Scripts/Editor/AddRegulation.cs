@@ -33,6 +33,7 @@ public static class AddRegulation
         }
 
         AddAssetRegulation();
+        ;
     }
 
     private static void AddAssetRegulation()
