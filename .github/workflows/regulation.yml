@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Build
         run: |
-          ${{ matrix.unityPath }} -batchmode -quit -projectPath . -buildTarget ${{matrix.targetPlatform}} -executeMethod ${{ matrix.buildMethod }} -logFile -
+          & ${{ matrix.unityPath }} -projectPath . -executeMethod ${{ matrix.buildMethod }}
 
       - name: Upload App
         uses: actions/upload-artifact@v3
