@@ -2,9 +2,6 @@ name: Tst
 
 on:
   workflow_dispatch: { }
-defaults:
-  run:
-    shell: pwsh
 
 jobs:
   buildForWindowsBasedPlatforms:
@@ -22,3 +19,4 @@ jobs:
       - name: Run Build
         run: |
           & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -batchmode -quit -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod BuildApp.Build
+        shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
