@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Build
         run: |
-          & ${{ matrix.unityPath }} -projectPath . -executeMethod ${{ matrix.buildMethod }}
+          & ${{ matrix.unityPath }} -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod ${{ matrix.buildMethod }}
 
       - name: Upload App
         uses: actions/upload-artifact@v3
