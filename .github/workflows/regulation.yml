@@ -7,8 +7,7 @@ defaults:
     shell: bash
 
 jobs:
-  buildForWindowsBasedPlatforms:
-    name: Build for ${{ matrix.targetPlatform }}
+  build:
     runs-on: [ self-hosted, Windows ]
     strategy:
       fail-fast: false
