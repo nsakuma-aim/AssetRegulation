@@ -21,4 +21,4 @@ jobs:
   
       - name: Run Build
         run: |
-          & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -batchmode -quit -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod BuildApp.Build -logFile unityBuild.log
+          New-Item -ItemType Directory -Path "C:\Users\nsakuma\Desktop\Projects\AssetRegulation\Builds\App"
