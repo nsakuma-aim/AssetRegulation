@@ -1,0 +1,35 @@
+# 名前
+name: Hoge
+
+# ワークフローが走るタイミング
+on:
+  # pushされたとき
+  push:
+    # ブランチ指定
+    branches: [ "main" ]
+  # pr作成時
+  pull_request:
+    # ブランチ指定
+    branches: [ "main" ]
+
+  # 明示的に指定したとき
+  workflow_dispatch:
+
+# 実行されるjob
+jobs:
+  # job名？
+  build:
+    # どの仮想環境で動かすか
+    runs-on: ubuntu-latest
+    # 処理のステップ
+    steps:
+      # 自身のリポジトリを読み込む
+      - uses: actions/chackout@v3
+      # stepの名前？
+      - name: Run a one-line script
+        # 単一のシェルスクリプトを実行
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
