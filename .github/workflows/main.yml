@@ -17,12 +17,9 @@ jobs:
           echo "3rd" >> comments
           sed -i -z 's/\n/\\n/g' comments
 
-      - name: Post multi-line comments
+      - name: Post comments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          URL: ${{ github.event.pull_request.comments_url }}
-        run: |
-          curl -X POST \
-               -H "Authorization: token ${GITHUB_TOKEN}" \
-               -d "{\"body\": \"$(cat comments)\"}" \
-               ${URL}
+          URL: ${{ github.event.pull_request.html_url }}
+        run:
+          gh pr comment -F ./comments "${URL}"
