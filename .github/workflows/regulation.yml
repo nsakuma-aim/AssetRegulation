@@ -1,7 +1,6 @@
-name: RegulationJob
+name: Build App windows
 
 on:
-  # 後で変える
   workflow_dispatch: { }
 defaults:
   run:
@@ -17,7 +16,7 @@ jobs:
         targetPlatform:
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
         buildMethod:
-          - AssetRegulationManager.Editor.Core.Tool.Test.AssetRegulationTestCLI.AssetRegulationTestCLI.ExecuteTests
+          - BuildApp.Build
         unityPath:
           - '"C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe"' #使用しているUnityのバージョンのパス
     steps:
@@ -29,11 +28,11 @@ jobs:
 
       - name: Run Build
         run: |
-          & "C:\Program Files\Unity\Hub\Editor\2022.3.43f1\Editor\Unity.exe" -projectPath "C:\Users\nsakuma\Desktop\Projects\AssetRegulation" -executeMethod "AssetRegulationManager.Editor.Core.Tool.Test.AssetRegulationTestCLI.AssetRegulationTestCLI.ExecuteTests"
+          ${{ matrix.unityPath }} -batchmode -quit -projectPath . -buildTarget ${{matrix.targetPlatform}} -executeMethod ${{ matrix.buildMethod }} -logFile -
 
       - name: Upload App
         uses: actions/upload-artifact@v3
         with:
           name: App_Develop
-          path: AssetRegulationManager/
-          retention-days: 1
+          path: Builds/App/
+          retention-days: 7
