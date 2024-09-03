@@ -1,25 +1,21 @@
-name: comment_on_pr
+name: main
 
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create comments
-        run: |
-          echo "1st" >> comments
-          echo "2nd" >> comments
-          echo "3rd" >> comments
-          sed -i -z 's/\n/\\n/g' comments
+    types: [ opened, synchronize ]
 
-      - name: Post comments
+jobs:
+  main:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
+    timeout-minutes: 5
+    steps:
+      - name: CommentTest
         env:
+          PR_NUMBER: ${{ github.event.number }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          URL: ${{ github.event.pull_request.html_url }}
-        run:
-          gh pr comment -F ./comments "${URL}"
+        run: |
+          echo "PRへのコメント内容をファイルに出力する" > /tmp/comment
+          gh pr comment "${PR_NUMBER}" -F /tmp/comment
