@@ -25,10 +25,9 @@ jobs:
       - name: Create comments
         run: |
           cat << EOF > comments
-          Testだよあいうえお
-          かいぎょうだよ
-          こんにちは
-          123456789
+          以下のリソースがレギュレーションに沿っていないので、修正してください。
+          * Assets/Texture/Hoge.png
+              * 4の倍数ではない
           EOF
 
       - name: Post comments
